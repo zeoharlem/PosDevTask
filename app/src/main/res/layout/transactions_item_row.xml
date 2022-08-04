@@ -6,10 +6,11 @@
     android:padding="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageButton
+    <Button
         android:id="@+id/image_link"
-        android:layout_width="30dp"
+        android:layout_width="20dp"
         android:layout_height="30dp"
+        android:drawableStart="@drawable/ic_outline_open_in_full_24"
         android:src="@drawable/ic_outline_open_in_full_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:fontFamily="@font/nunito_black"
+        android:fontFamily="@font/nunito_bold"
         android:text="Bill Payment Charges"
         android:textColor="@color/black"
         android:textSize="14sp"
@@ -53,6 +54,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/status_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserat_alt"

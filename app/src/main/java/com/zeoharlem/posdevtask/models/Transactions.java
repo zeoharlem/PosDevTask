@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.DiffUtil;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
 import java.util.Objects;
 
 public class Transactions implements Parcelable {
@@ -95,7 +94,7 @@ public class Transactions implements Parcelable {
 
     @SerializedName("amount")
     @Expose
-    public double amount;
+    public String amount;
 
     @SerializedName("creditAccountNumber")
     @Expose
@@ -111,7 +110,7 @@ public class Transactions implements Parcelable {
 
     @SerializedName("transactionDate")
     @Expose
-    public Date transactionDate;
+    public String transactionDate;
 
     @SerializedName("credit")
     @Expose
@@ -185,7 +184,7 @@ public class Transactions implements Parcelable {
     @Expose
     public boolean isCredit;
 
-    protected Transactions(Parcel in) {
+    public Transactions(Parcel in) {
         creditAccountNo = in.readString();
         debitAccountNo = in.readString();
         transactionBy = in.readString();
@@ -206,7 +205,7 @@ public class Transactions implements Parcelable {
         transactionTypeName = in.readString();
         description = in.readString();
         narration = in.readString();
-        amount = in.readDouble();
+        amount = in.readString();
         creditAccountNumber = in.readString();
         deditAccountNumber = in.readString();
         parentReference = in.readString();
@@ -241,6 +240,10 @@ public class Transactions implements Parcelable {
             return new Transactions[size];
         }
     };
+
+    public Transactions() {
+
+    }
 
     public String getCreditAccountNo() {
         return creditAccountNo;
@@ -402,11 +405,11 @@ public class Transactions implements Parcelable {
         this.narration = narration;
     }
 
-    public double getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 
@@ -434,11 +437,11 @@ public class Transactions implements Parcelable {
         this.parentReference = parentReference;
     }
 
-    public Date getTransactionDate() {
+    public String getTransactionDate() {
         return transactionDate;
     }
 
-    public void setTransactionDate(Date transactionDate) {
+    public void setTransactionDate(String transactionDate) {
         this.transactionDate = transactionDate;
     }
 
@@ -613,7 +616,7 @@ public class Transactions implements Parcelable {
         parcel.writeString(transactionTypeName);
         parcel.writeString(description);
         parcel.writeString(narration);
-        parcel.writeDouble(amount);
+        parcel.writeString(amount);
         parcel.writeString(creditAccountNumber);
         parcel.writeString(deditAccountNumber);
         parcel.writeString(parentReference);
@@ -642,7 +645,7 @@ public class Transactions implements Parcelable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Transactions that = (Transactions) o;
-        return userType == that.userType && userId == that.userId && archived == that.archived && hasProduct == that.hasProduct && Double.compare(that.balanceBeforeTransaction, balanceBeforeTransaction) == 0 && id == that.id && transactionType == that.transactionType && Double.compare(that.amount, amount) == 0 && Double.compare(that.credit, credit) == 0 && Double.compare(that.debit, debit) == 0 && Double.compare(that.balanceAfterTransaction, balanceAfterTransaction) == 0 && channel == that.channel && status == that.status && Double.compare(that.charges, charges) == 0 && Double.compare(that.aggregatorCommission, aggregatorCommission) == 0 && hasCharges == that.hasCharges && agentCommission == that.agentCommission && stateId == that.stateId && lgaId == that.lgaId && regionId == that.regionId && aggregatorId == that.aggregatorId && isCredit == that.isCredit && creditAccountNo.equals(that.creditAccountNo) && debitAccountNo.equals(that.debitAccountNo) && transactionBy.equals(that.transactionBy) && channelName.equals(that.channelName) && statusName.equals(that.statusName) && initiator.equals(that.initiator) && product.equals(that.product) && senderName.equals(that.senderName) && receiverName.equals(that.receiverName) && reference.equals(that.reference) && transactionTypeName.equals(that.transactionTypeName) && description.equals(that.description) && narration.equals(that.narration) && creditAccountNumber.equals(that.creditAccountNumber) && deditAccountNumber.equals(that.deditAccountNumber) && parentReference.equals(that.parentReference) && transactionDate.equals(that.transactionDate) && sender.equals(that.sender) && receiver.equals(that.receiver) && debitAccountNumber.equals(that.debitAccountNumber) && initiatedBy.equals(that.initiatedBy);
+        return userType == that.userType && userId == that.userId && archived == that.archived && hasProduct == that.hasProduct && Double.compare(that.balanceBeforeTransaction, balanceBeforeTransaction) == 0 && id == that.id && transactionType == that.transactionType && Double.compare(that.credit, credit) == 0 && Double.compare(that.debit, debit) == 0 && Double.compare(that.balanceAfterTransaction, balanceAfterTransaction) == 0 && channel == that.channel && status == that.status && Double.compare(that.charges, charges) == 0 && Double.compare(that.aggregatorCommission, aggregatorCommission) == 0 && hasCharges == that.hasCharges && agentCommission == that.agentCommission && stateId == that.stateId && lgaId == that.lgaId && regionId == that.regionId && aggregatorId == that.aggregatorId && isCredit == that.isCredit && creditAccountNo.equals(that.creditAccountNo) && debitAccountNo.equals(that.debitAccountNo) && transactionBy.equals(that.transactionBy) && channelName.equals(that.channelName) && statusName.equals(that.statusName) && initiator.equals(that.initiator) && product.equals(that.product) && senderName.equals(that.senderName) && receiverName.equals(that.receiverName) && reference.equals(that.reference) && transactionTypeName.equals(that.transactionTypeName) && description.equals(that.description) && narration.equals(that.narration) && creditAccountNumber.equals(that.creditAccountNumber) && deditAccountNumber.equals(that.deditAccountNumber) && parentReference.equals(that.parentReference) && transactionDate.equals(that.transactionDate) && sender.equals(that.sender) && receiver.equals(that.receiver) && debitAccountNumber.equals(that.debitAccountNumber) && initiatedBy.equals(that.initiatedBy);
     }
 
     @Override
